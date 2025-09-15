@@ -75,6 +75,12 @@ def crear_grafo():
         nodo = partes[0]
         vecinos = partes[2:]
         grafica[nodo] = vecinos
+
+        for vecino in vecinos:
+            if vecino not in grafica:
+                grafica[vecino] = [nodo]
+            elif nodo not in grafica[vecino]:
+                grafica[vecino].append(nodo)
         
     return grafica
 
